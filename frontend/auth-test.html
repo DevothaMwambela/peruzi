@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Authentication System Test - peruzi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    background: #0f0f0f;
+    color: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+/* Container */
+.test-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* Header */
+.test-header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #8b0000 100%);
+    color: white;
+    padding: 32px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+.test-header h1 {
+    text-shadow: 0 0 12px rgba(255,0,0,0.7);
+}
+
+/* Sections */
+.test-section {
+    background: #1a1a1a;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.15);
+    border: 1px solid #2a2a2a;
+}
+
+.test-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #ff4d4d;
+}
+
+.test-description {
+    color: #b3b3b3;
+    margin-bottom: 16px;
+}
+
+.test-form {
+    display: grid;
+    gap: 16px;
+}
+
+/* Inputs */
+.test-input {
+    padding: 12px 16px;
+    border: 2px solid #333;
+    background: #0f0f0f;
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+.test-input:focus {
+    outline: none;
+    border-color: #ff0000;
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
+}
+
+/* Buttons */
+.test-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff0000 0%, #8b0000 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.test-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+}
+
+/* Results */
+.test-result {
+    margin-top: 16px;
+    padding: 16px;
+    background: #111;
+    border-radius: 8px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    border: 1px solid #222;
+}
+
+.test-success {
+    background: #062b06;
+    color: #66ff66;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.test-error {
+    background: #330000;
+    color: #ff6666;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+/* Quick Links */
+.quick-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.quick-link {
+    padding: 8px 16px;
+    background: #1f1f1f;
+    color: #ff4d4d;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    border: 1px solid #333;
+    transition: 0.2s;
+}
+
+.quick-link:hover {
+    background: #8b0000;
+    color: white;
+}
+
+/* Status */
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-online { background: #00ff00; }
+.status-offline { background: #ff0000; }
+
+* {
+    transition: all 0.2s ease-in-out;
+}
+</style>
+</head>
+
+<body>
+
+<div class="test-container">
+
+<div class="test-header">
+<h1>🔐 peruzi Authentication System</h1>
+<p>Test and validate all authentication endpoints</p>
+</div>
+
+<div class="quick-links">
+<a href="login.html" class="quick-link">Login</a>
+<a href="register.html" class="quick-link">Register</a>
+<a href="forgot-password.html" class="quick-link">Forgot Password</a>
+<a href="reset-password.html" class="quick-link">Reset Password</a>
+<a href="index.html" class="quick-link">Home</a>
+</div>
+
+<!-- LOGIN -->
+<div class="test-section">
+<h2 class="test-title">1. Test User Login</h2>
+<p class="test-description">Use existing credentials</p>
+
+<form class="test-form" id="loginTestForm">
+<input type="email" class="test-input" id="loginEmail" value="saimalyethomas@gmail.com">
+<input type="password" class="test-input" id="loginPassword" value="password123">
+<button class="test-btn">Test Login</button>
+</form>
+
+<div id="loginResult"></div>
+</div>
+
+<!-- REGISTER -->
+<div class="test-section">
+<h2 class="test-title">2. Test Registration</h2>
+<form class="test-form" id="registerTestForm">
+<input type="text" class="test-input" id="registerName" placeholder="Full Name">
+<input type="email" class="test-input" id="registerEmail" placeholder="Email">
+<input type="password" class="test-input" id="registerPassword" placeholder="Password">
+<button class="test-btn">Test Registration</button>
+</form>
+<div id="registerResult"></div>
+</div>
+
+<!-- FORGOT -->
+<div class="test-section">
+<h2 class="test-title">3. Forgot Password</h2>
+<form class="test-form" id="forgotTestForm">
+<input type="email" class="test-input" id="forgotEmail" placeholder="Email">
+<button class="test-btn">Request Reset</button>
+</form>
+<div id="forgotResult"></div>
+</div>
+
+</div>
+
+</body>
+</html>
